@@ -1,0 +1,48 @@
+option(redSB);
+LIB "absfact.lib";
+proc pideal(list #) {
+	matrix m[2][size(#)]=#[1..size(#)],variables(maxideal(1));
+	ideal I=minor(m,2);
+	return(std(I));
+}
+ring R1=0,(x,y,z),dp;
+list L=1,0,0,
+-1,1,0,
+0,1,0,
+1,1,0,
+-1,-1,1,
+1,-1,1,
+-1,1,1,
+1,1,1,
+0,-1,1,
+-1,0,1,
+0,0,1,
+1,0,1,
+0,1,1;
+ideal I=pideal(L[1],L[2],L[3])^2;
+for(int i=4;i<=size(L);i=i+3){
+	if(i==7 || i==31){ // P1, P3 and P11 are double points
+		I=intersect(I,pideal(L[i],L[i+1],L[i+2])^2);
+	}
+	else{
+		I=intersect(I,pideal(L[i],L[i+1],L[i+2]));
+	}
+}
+I=std(intersect(I,pideal(-31,-9,15)^4));
+poly F=I[1];
+"F= "+string(F);
+"deg(F)= "+string(deg(F));
+def S=absFactorize(F);
+setring(S);
+absolute_factors;
+"-------------------------------------";
+ring R2=0,(x,y,z,w),dp;
+ideal IF=intersect(ideal(y3-x3,z3-x3,w3-x3),ideal(x,y,z),ideal(x,y,w),ideal(y,z,w),ideal(x,z,w)^3);
+ideal LH=x-3y+4z-6w,x+y-7z+11w;
+ideal J=std(intersect(IF,LH^2));
+poly F=J[1]+J[2]+J[3];
+"F= "+string(F);
+"deg(F)= "+string(deg(F));
+def S=absFactorize(F);
+setring(S);
+absolute_factors;
