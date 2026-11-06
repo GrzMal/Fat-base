@@ -17,6 +17,14 @@ The computations require **Singular** and the library `absfact.lib`. Run the scr
 
 The script prints the polynomials, their degrees, and their absolute factors.
 
-## License
+## Finansowanie / Funding
 
-The code is distributed under the [MIT License](LICENSE).
+Pl:
+Badania zostały sfinansowane przez Narodowe Centrum Nauki (NCN) w ramach projektu badawczego nr **2023/51/D/ST1/00118** pt. *"Nieoczekiwane powierzchnie typu (d+k,d) w przestrzeni rzutowej P^N"*. 
+
+Wszelkie dane, metadane oraz kod źródłowy zawarte w tym repozytorium są udostępniane na licencji **[MIT](LICENSE)**.
+
+Eng:
+This research was funded by the National Science Centre, Poland (NCN) under the research project no. **2023/51/D/ST1/00118** entitled *"Nieoczekiwane powierzchnie typu (d+k,d) w przestrzeni rzutowej P^N"*.
+
+All data, metadata, and source code in this repository are distributed under the **[MIT](LICENSE)** license.
